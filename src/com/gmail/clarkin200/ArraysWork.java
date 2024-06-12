@@ -77,11 +77,11 @@ public class ArraysWork {
     }
 
     public static int findSmallestIndex(int[] array) {
-        int smalestElement = array[0];
+        int smallestElement = array[0];
         int result = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] < smalestElement) {
-                smalestElement = array[i];
+            if (array[i] < smallestElement) {
+                smallestElement = array[i];
                 result = i;
             }
         }
