@@ -10,7 +10,7 @@ public class SortedArray {
         System.out.print("Generated array: ");
         printArray(array);
         System.out.println();
-        System.out.print("Sorted array: ");
+        System.out.print("Sorted array by selection sort: ");
         selectionSort(array);
         printArray(array);
         System.out.println();
@@ -18,11 +18,25 @@ public class SortedArray {
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
         if (binarySearch(array, input) != 0) {
-            System.out.print("Index of number: " + input + " in sorted array: " + binarySearch(array, input));
+            System.out.println("Index of number: " + input + " in sorted array: " + binarySearch(array, input));
         } else {
             System.out.println("Number: " + input + " not found");
         }
-
+        System.out.print("Generated array: ");
+        fillArray(array);
+        printArray(array);
+        System.out.println();
+        insertionSort(array);
+        System.out.print("Sorted array by insertion sort: ");
+        printArray(array);
+        System.out.println();
+        System.out.print("Input your value ");
+        input = scanner.nextInt();
+        if (binarySearch(array, input) != 0) {
+            System.out.println("Index of number: " + input + " in sorted array: " + binarySearch(array, input));
+        } else {
+            System.out.println("Number: " + input + " not found");
+        }
 
     }
 
@@ -33,8 +47,8 @@ public class SortedArray {
     }
 
     public static void printArray(int[] array) {
-        for (int i : array) {
-            System.out.print(i + " ");
+        for (int element : array) {
+            System.out.print(element + " ");
         }
     }
 
@@ -49,6 +63,19 @@ public class SortedArray {
             int temp = array[i];
             array[i] = array[minIndex];
             array[minIndex] = temp;
+        }
+    }
+
+    public static void insertionSort(int[] array) {
+        int n = array.length;
+        for (int i = 1; i < n; i++) {
+            int key = array[i];
+            int j = i - 1;
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = key;
         }
     }
 
